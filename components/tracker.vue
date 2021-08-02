@@ -534,7 +534,8 @@
                         for (let Keys of _.entries(convert_to_object)) {
                             if(
                                 !_.some(Keys,'name') ||
-                                !_.some(Keys,'wallet')
+                                !_.some(Keys,'wallet') ||
+                                !_.some(Keys,'percent')
                             )
                             {
                                 validKey = false
