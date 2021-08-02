@@ -87,6 +87,10 @@
 
 
           <v-card-text class="teal py-2 text-center">
+
+
+                        <small class="white--text">We don't use cookies to gather information. No ads. No trackers. No kidding. Your contribution helps the developers to pay their tuition thank you</small> <br>
+
              <svg height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
               viewBox="0 0 512.009 512.009" style="enable-background:new 0 0 512.009 512.009;" xml:space="preserve">
             <circle style="fill:#F7B239;" cx="256.004" cy="256.004" r="256.004"/>
@@ -204,6 +208,8 @@
             <g>
             </g>
             </svg>
+
+
 
 
             <br>
