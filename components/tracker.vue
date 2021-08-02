@@ -527,7 +527,7 @@
             Papa.parse(file, { 
                 header:true,
                 complete: function(results) {
-                    if(file.type == "application/vnd.ms-excel"){
+                    if(file.type == "application/vnd.ms-excel" || file.type == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"){
                         let convert_to_object = that.toObject(results.data)
                         let validKey = true;
 
