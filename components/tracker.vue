@@ -511,6 +511,7 @@
   import Papa from 'papaparse'
   const RoninValidatator = (value) => !helpers.req(value) || value.indexOf('ronin:') >= 0 && value.length == 46
   import Csvimport from '~/components/fileupload.vue'
+  import detect from 'detect-file-type'
   export default {
 
     mixins: [validationMixin],
@@ -599,6 +600,7 @@
       },
 
       import_csv (file) {
+
         if(file != null){
             let that = this
             this.import = false
@@ -606,7 +608,7 @@
                 header:true,
                 complete: function(results) {
                     console.log(file.type);
-                    if(file.type == "application/vnd.ms-excel" || file.type == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" || file.type == "csv"){
+
                         let convert_to_object = that.toObject(results.data)
                         let validKey = true;
 
@@ -630,13 +632,7 @@
                             that.failed = "CSV format not met!"
                             that.snackbar = true
                         }
-                    }else{
-                        //File Type Error
-                        that.failed = "Invalid File Type"
-                        that.snackbar = true
-                    }
                     
-
                     
                 }
             });

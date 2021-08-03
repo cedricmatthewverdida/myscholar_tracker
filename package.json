@@ -11,6 +11,9 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
     "core-js": "^3.15.1",
+    "detect-file-type": "^0.2.8",
+    "file-type": "^16.5.2",
+    "fs": "^0.0.1-security",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "nuxt": "^2.15.7",
