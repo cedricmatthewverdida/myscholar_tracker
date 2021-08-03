@@ -58,9 +58,7 @@ export const mutations = {
 
         const calculate = info[0].total/diff
         info[0].last_claimed_item_at = moment.unix(info[0].last_claimed_item_at).startOf('hour').fromNow()
-        info[0].total = Number((info[0].total).toFixed(1)).toLocaleString() + " SLP";
-        info[0]["average"] = Number((calculate).toFixed(0)).toLocaleString() + " SLP";
-        
+
         info[0]["claimbleon"] = claimable
         // info[0]["share"] = (parseFloat(info[1]) / 100) * info[0].total
         let compute_share = (info[1] / 100) * parseInt(info[0].total)
@@ -68,6 +66,8 @@ export const mutations = {
         info[0]["share"] = compute_share.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
         info[0]["sharepercent"] = info[1] + "%"
         info[0]["managershare"] = manager_share.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        info[0].total = Number((info[0].total).toFixed(1)).toLocaleString() + " SLP";
+        info[0]["average"] = Number((calculate).toFixed(0)).toLocaleString() + " SLP";
         state.info.push(
             info[0]
         )
