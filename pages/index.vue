@@ -1,14 +1,17 @@
 <template>
   <div>
-    <Scholar class="mt-5"/>
+    <Currency />
+    <Scholar class="mt-2"/>
   </div>
 </template>
 
 <script>
   import Scholar from '~/components/tracker.vue'
+  import Currency from '~/components/valuetracker.vue'
   export default {
     components:{
-      Scholar
+      Scholar,
+      Currency
     }
   }
 </script>
