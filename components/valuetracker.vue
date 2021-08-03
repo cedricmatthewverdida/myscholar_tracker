@@ -33,7 +33,7 @@
                   </v-img>
                   <h5 v-if="slp.length != 0" class="white--text">
                   {{slp.name}} <br>
-                  {{slp.market_data.current_price.php | currency_strings}} 
+                  {{slp.market_data.current_price.usd | currency_strings}} USD
                   </h5>
               </v-btn>
             </template>
@@ -91,7 +91,7 @@
                   </v-img>
                   <h5 v-if="eth.length != 0" class="white--text">
                   {{eth.name}} <br>
-                  {{eth.market_data.current_price.php | currency_strings}} PHP
+                  {{eth.market_data.current_price.usd | currency_strings}} USD
                   </h5>
                 </v-btn>
               </template>
@@ -145,7 +145,7 @@
                     </v-img>
                     <h5 v-if="axs.length != 0" class="white--text">
                     {{axs.name}} <br>
-                    {{axs.market_data.current_price.php | currency_strings}} PHP
+                    {{axs.market_data.current_price.usd | currency_strings}} USD
                     </h5>
                 </v-btn>
                 </template>
