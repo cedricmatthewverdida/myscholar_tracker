@@ -5,7 +5,7 @@
     :search="search"
     sort-by="calories"
     color="red"
-    class="elevation-1 pa-5"
+    class="elevation-3 pa-5"
     style="
     
     backdrop-filter: blur(16px) saturate(180%);

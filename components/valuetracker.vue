@@ -1,7 +1,7 @@
 <template>
   <v-sheet
-    class="mx-auto"
     color="transparent"
+    max-width="800"
   >
     <v-slide-group
       
@@ -10,75 +10,179 @@
     >
       <v-slide-item
       >
-        <v-btn
-          class="mx-2"
-          depressed
-          rounded
-          :loading="slp.length == 0"
-          color="transparent"
-          style="text-transform:none"
-        >
-            <v-img
-            v-if="slp.length != 0"
-            :src="slp.image.thumb"
-            :lazy-src="slp.image.thumb"
-            >
-            </v-img>
-            <h5 v-if="slp.length != 0" class="white--text">
-            {{slp.name}} <br>
-            {{slp.market_data.current_price.php | currency_strings}} PHP
-            </h5>
-        </v-btn>
+        
+
+
+          <v-menu offset-y>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                class="mx-2"
+                depressed
+                rounded
+                :loading="slp.length == 0"
+                color="transparent"
+                style="text-transform:none"
+                v-bind="attrs"
+                v-on="on"
+              >
+                  <v-img
+                  v-if="slp.length != 0"
+                  :src="slp.image.thumb"
+                  :lazy-src="slp.image.thumb"
+                  >
+                  </v-img>
+                  <h5 v-if="slp.length != 0" class="white--text">
+                  {{slp.name}} <br>
+                  {{slp.market_data.current_price.php | currency_strings}} 
+                  </h5>
+              </v-btn>
+            </template>
+            <v-list
+            style="
+            max-height: 300px;
+            border-radius: 30px;
+            border: 1px solid rgba(209, 213, 219, 0.3);"
+            class="overflow-y-auto"
+            v-if="slp.length !=0">
+
+              <v-list-item 
+               v-for="(item,key) in slp.market_data.current_price"
+               :key="key"
+              >
+                  <v-list-item-content>
+                    <v-list-item-title>
+                      <div class="d-flex flex-row">
+                          <span class="mr-5">{{key | toUpper}}</span>
+                          <span>{{item| currency_strings}}</span>
+                      </div>
+                      </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+
+            </v-list>
+          </v-menu>
+
       </v-slide-item>
+
+
+
 
       <v-slide-item
       >
-        <v-btn
-          class="mx-2"
-          depressed
-          rounded
-          :loading="eth.length == 0"
-          color="transparent"
-          style="text-transform:none"
-        >
-            <v-img
-            v-if="eth.length != 0"
-            :src="eth.image.thumb"
-            :lazy-src="eth.image.thumb"
-            >
-            </v-img>
-            <h5 v-if="eth.length != 0" class="white--text">
-            {{eth.name}} <br>
-            {{eth.market_data.current_price.php | currency_strings}} PHP
-            </h5>
-        </v-btn>
+        
+
+        <v-menu offset-y>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                class="mx-2"
+                depressed
+                rounded
+                :loading="eth.length == 0"
+                color="transparent"
+                style="text-transform:none"
+                v-bind="attrs"
+                v-on="on"
+              >
+                  <v-img
+                  v-if="eth.length != 0"
+                  :src="eth.image.thumb"
+                  :lazy-src="eth.image.thumb"
+                  >
+                  </v-img>
+                  <h5 v-if="eth.length != 0" class="white--text">
+                  {{eth.name}} <br>
+                  {{eth.market_data.current_price.php | currency_strings}} PHP
+                  </h5>
+                </v-btn>
+              </template>
+                    <v-list
+                          style="
+                          max-height: 300px;
+                          border-radius: 30px;
+                          border: 1px solid rgba(209, 213, 219, 0.3);"
+                          class="overflow-y-auto"
+                          v-if="eth.length !=0">
+
+                            <v-list-item 
+                            v-for="(item,key) in eth.market_data.current_price"
+                            :key="key"
+                            >
+                                <v-list-item-content>
+                                  <v-list-item-title>
+                                    <div class="d-flex flex-row">
+                                        <span class="mr-5">{{key | toUpper}}</span>
+                                        <span>{{item| currency_strings}}</span>
+                                    </div>
+                            </v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+                  </v-list>
+        </v-menu>
       </v-slide-item>
+
+
 
       <v-slide-item
       >
-        <v-btn
-          class="mx-2"
-          depressed
-          rounded
-          :loading="axs.length == 0"
-          color="transparent"
-          style="text-transform:none"
-        >
-            <v-img
-            v-if="axs.length != 0"
-            :src="axs.image.thumb"
-            :lazy-src="axs.image.thumb"
-            >
-            </v-img>
-            <h5 v-if="axs.length != 0" class="white--text">
-            {{axs.name}} <br>
-            {{axs.market_data.current_price.php | currency_strings}} PHP
-            </h5>
-        </v-btn>
+
+              <v-menu offset-y>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                  class="mx-2"
+                  depressed
+                  rounded
+                  :loading="axs.length == 0"
+                  color="transparent"
+                  style="text-transform:none"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                    <v-img
+                    v-if="axs.length != 0"
+                    :src="axs.image.thumb"
+                    :lazy-src="axs.image.thumb"
+                    >
+                    </v-img>
+                    <h5 v-if="axs.length != 0" class="white--text">
+                    {{axs.name}} <br>
+                    {{axs.market_data.current_price.php | currency_strings}} PHP
+                    </h5>
+                </v-btn>
+                </template>
+                <v-list
+                style="
+                max-height: 300px;
+                border-radius: 30px;
+                border: 1px solid rgba(209, 213, 219, 0.3);"
+                class="overflow-y-auto"
+                v-if="axs.length !=0">
+
+                  <v-list-item 
+                  v-for="(item,key) in axs.market_data.current_price"
+                  :key="key"
+                  >
+                      <v-list-item-content>
+                        <v-list-item-title>
+                          <div class="d-flex flex-row">
+                              <span class="mr-5">{{key | toUpper}}</span>
+                              <span>{{item| currency_strings}}</span>
+                          </div>
+                          </v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+
+                </v-list>
+              </v-menu>
+        
       </v-slide-item>
 
       <v-slide-item>
-           <v-btn @click="reload()" color="primary" icon>
+           <v-btn 
+           @click="reload()" 
+           color="primary"
+           x-small
+           depressed
+           fab>
 
                 <v-icon>
                     mdi-reload
@@ -133,6 +237,9 @@
     filters:{
         currency_strings : function (val){
             return val.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        },
+        toUpper(str) {
+          return str.toUpperCase()
         }
     },
     mounted(){
