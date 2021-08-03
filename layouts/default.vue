@@ -27,7 +27,6 @@
           <v-img
             :src="require('@/assets/tab-axie.png')"
             :lazy-src="require('@/assets/tab-axie.png')"
-        
             ></v-img>
       </v-app-bar-nav-icon> 
 
@@ -215,17 +214,29 @@
             <br>
             
             <h5 class="white--text">
+
+              <b>Ronin Wallet</b>
               {{donation_ronin}} 
 
               <v-icon
                 color="white"
                 small
                 class="ml-2"
-                @click="copy_clipboard(),copy_clipboard_stat = ! copy_clipboard_stat"
+                @click="copy_clipboard_ronin(),copy_clipboard_stat = ! copy_clipboard_stat"
+              >
+                mdi-content-copy
+              </v-icon> <br>
+                 <b>Metamask Wallet</b>
+               {{metamask}} 
+
+              <v-icon
+                color="white"
+                small
+                class="ml-2"
+                @click="copy_clipboard_metamask(),copy_clipboard_stat = ! copy_clipboard_stat"
               >
                 mdi-content-copy
               </v-icon>
-
             </h5>
 
             
@@ -256,11 +267,12 @@ export default {
     return {
       title: 'My Scholar Tracker',
       donation_ronin: 'ronin:04b319864b624fc05c7366771dacdec6335ca96a',
+      metamask: '0x462644A84F5CFEac3E63DF5E6F43a37adb4098F7',
       copy_clipboard_stat:false
     }
   },
   methods:{
-    copy_clipboard : function (){
+    copy_clipboard_ronin : function (){
     var input = document.createElement('input');
     input.setAttribute('value', this.donation_ronin);
     document.body.appendChild(input);
@@ -268,8 +280,16 @@ export default {
     var result = document.execCommand('copy');
     document.body.removeChild(input);
     return result;
-
-    }
+    },
+    copy_clipboard_metamask : function (){
+    var input = document.createElement('input');
+    input.setAttribute('value', this.metamask);
+    document.body.appendChild(input);
+    input.select();
+    var result = document.execCommand('copy');
+    document.body.removeChild(input);
+    return result;
+    },
 
   }
 }
