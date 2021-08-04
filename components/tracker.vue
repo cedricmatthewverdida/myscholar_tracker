@@ -512,6 +512,7 @@
   const RoninValidatator = (value) => !helpers.req(value) || value.indexOf('ronin:') >= 0 && value.length == 46
   import Csvimport from '~/components/fileupload.vue'
   import detect from 'detect-file-type'
+  import Cookies from 'js-cookie'
   export default {
 
     mixins: [validationMixin],
@@ -669,6 +670,7 @@
         }
 
         this.importloader = false;
+        Cookies.set('scholar', JSON.stringify(this.scholar))
 
       },
 
@@ -718,7 +720,6 @@
             const recieve = await send.data;
 
             this.load = false
-            console.log(recieve);
             return recieve.blockchain_related.signature == null ? false : recieve;
         }catch{
             return 204;
@@ -757,12 +758,27 @@
         this.name = ''
         this.Ronin = ''
       },
+
+      async init (){
+        for (const info of this.scholar) {
+            const check_wallet_if_exist_then_save = await this.WalletInfo(info.wallet)
+            this.addInfo([check_wallet_if_exist_then_save,info.percent])
+        }
+         this.merge_and_manipulate()
+      }
     },
     watch:{
         import : function (v){
             if(v){
                 this.import_load()
             }
+        }
+    },
+
+    mounted(){
+        if(this.scholar.length != 0){
+            console.log("Yaaaaaaaa");
+            this.init();
         }
     }
   }

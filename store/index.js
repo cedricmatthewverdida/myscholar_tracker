@@ -1,6 +1,8 @@
 export const strict = false
 import _ from 'lodash';
 import moment from 'moment';
+import Cookies from 'js-cookie'
+import cookieparser from 'cookieparser'
 export const state = () => ({
     scholar:[],
     info:[]
@@ -21,10 +23,13 @@ export const mutations = {
         // https://github.com/vuejs/vuex/issues/1118
         state.info = []
         state.scholar = []
+
     },
 
     import_csv_to_json(state,scholar){
         state.scholar = scholar
+        Cookies.set('scholar', JSON.stringify(state.scholar))
+
     },
   
     addScholar(state,scholar = Object){
@@ -33,6 +38,12 @@ export const mutations = {
             name: scholar[1],
             percent: scholar[2]
         })
+
+        Cookies.set('scholar', JSON.stringify(state.scholar))
+    },
+
+    set_scholar (state,scholar){
+        state.scholar = scholar
     },
 
 
@@ -91,8 +102,13 @@ export const actions = {
 
     nuxtClientInit ({ commit }, { req }) {
      
+      
         
-
+        // commit('set_scholar', "[{%22wallet%22:%22ronin:79eb977758cd9489efca3ac7b6a7f7a1f68e7e2a%22%2C%22name%22:%22Ced%22%2C%22percent%22:30}]")
+        if(getCookie("scholar") != ""){
+            commit('set_scholar',JSON.parse(getCookie("scholar")))
+            console.log(getCookie("scholar"));
+        }
     }
 
 }
@@ -112,3 +128,21 @@ function convert_unix_readable_date(milliseconds) {
 
     return diff
 }
+
+
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }

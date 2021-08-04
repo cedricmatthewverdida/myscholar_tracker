@@ -240,6 +240,7 @@
 
 <script>
   import { mapState,mapMutations } from 'vuex'
+  import Cookies from 'js-cookie'
   export default {
     data: () => ({
       search: '',
@@ -298,6 +299,8 @@
         this.info.splice(this.editedIndex, 1)
         this.scholar.splice(this.editedIndex, 1)
         this.closeDelete()
+
+        Cookies.set('scholar', JSON.stringify(this.scholar))
       },
 
       close () {
