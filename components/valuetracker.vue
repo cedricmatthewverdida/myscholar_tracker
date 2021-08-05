@@ -25,13 +25,22 @@
                 v-bind="attrs"
                 v-on="on"
               >
+                <template v-slot:loader>
+                    <v-progress-circular
+                      indeterminate
+                      :size="20"
+                      color="white"
+                    ></v-progress-circular>
+                    <span class="white--text">SLP</span>
+                </template>
+
                   <v-img
                   v-if="slp.length != 0"
                   :src="slp.image.thumb"
                   :lazy-src="slp.image.thumb"
                   >
                   </v-img>
-                  <h5 v-if="slp.length != 0" class="white--text">
+                  <h5 v-if="slp.length != 0" >
                   {{slp.name}} <br>
                   {{slp.market_data.current_price.usd | currency_strings}} USD
                   </h5>
@@ -83,13 +92,22 @@
                 v-bind="attrs"
                 v-on="on"
               >
+                <template v-slot:loader>
+                    <v-progress-circular
+                      indeterminate
+                      :size="20"
+                      color="white"
+                    ></v-progress-circular>
+                    <span class="white--text">ETH</span>
+                </template>
+
                   <v-img
                   v-if="eth.length != 0"
                   :src="eth.image.thumb"
                   :lazy-src="eth.image.thumb"
                   >
                   </v-img>
-                  <h5 v-if="eth.length != 0" class="white--text">
+                  <h5 v-if="eth.length != 0">
                   {{eth.name}} <br>
                   {{eth.market_data.current_price.usd | currency_strings}} USD
                   </h5>
@@ -137,13 +155,21 @@
                   v-bind="attrs"
                   v-on="on"
                 >
+                  <template v-slot:loader>
+                      <v-progress-circular
+                        indeterminate
+                        :size="20"
+                        color="white"
+                      ></v-progress-circular>
+                      <span class="white--text">AXS</span>
+                  </template>
                     <v-img
                     v-if="axs.length != 0"
                     :src="axs.image.thumb"
                     :lazy-src="axs.image.thumb"
                     >
                     </v-img>
-                    <h5 v-if="axs.length != 0" class="white--text">
+                    <h5 v-if="axs.length != 0" >
                     {{axs.name}} <br>
                     {{axs.market_data.current_price.usd | currency_strings}} USD
                     </h5>
@@ -249,3 +275,9 @@
     }
   }
 </script>
+
+<style>
+h5{
+  color:#EDEDED;
+}
+</style>

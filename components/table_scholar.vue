@@ -5,13 +5,13 @@
     :search="search"
     sort-by="calories"
     color="red"
-    class="elevation-3 pa-5"
+    class="elevation-2 pa-5"
     style="
     
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    background-color: rgba(255, 255, 255, 0.75);
-    border-radius: 30px;
+    backdrop-filter: blur(25px) saturate(179%);
+    -webkit-backdrop-filter: blur(25px) saturate(179%);
+    background-color: rgba(237, 237, 237, 1);
+    border-radius: 35px;
     border: 1px solid rgba(209, 213, 219, 0.3);
 
     "

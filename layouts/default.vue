@@ -1,10 +1,7 @@
 <template>
   <v-app 
     style="
-    background-color: #50E3C2;
-    background-image: 
-    radial-gradient(at 47% 33%, hsl(162.00, 77%, 40%) 0, transparent 59%), 
-    radial-gradient(at 82% 65%, hsl(198.00, 100%, 50%) 0, transparent 55
+    background-color: #171717;
     "
   >
  
@@ -17,7 +14,7 @@
       style="
       border-bottom-left-radius:30px;
       border-bottom-right-radius:30px;
-      background-color: #f5f7fa;
+      background-color: #EDEDED;
       background-image: 
       radial-gradient(at 47% 33%, hsl(216.00, 33%, 97%) 0, transparent 59%), 
       radial-gradient(at 82% 65%, hsl(216.00, 33%, 79%) 0, transparent 55%);
@@ -80,15 +77,16 @@
           class="flex"
           flat
           tile
+          color="#EDEDED"
         >
 
 
 
+ <!--
+          <v-card-text class="py-2 text-center">
 
-          <v-card-text class="teal py-2 text-center">
 
-
-                        <small class="white--text">We don't gather information. Your contribution helps the developers to pay their tuition thank you. We are also willing to be one of your scholars.</small> <br>
+                        <small class="grey--text">We don't gather information. Your contribution helps the developers to pay their tuition thank you. We are also willing to be one of your scholars.</small> <br>
 
              <svg height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
               viewBox="0 0 512.009 512.009" style="enable-background:new 0 0 512.009 512.009;" xml:space="preserve">
@@ -147,7 +145,7 @@
             </g>
             </svg>
 
-            <strong class="subheading white--text">
+            <strong class="subheading grey--text">
               Please Consider Donating To Us
             </strong>
 
@@ -213,7 +211,7 @@
 
             <br>
             
-            <h5 class="white--text">
+            <h5 class="grey--text">
 
               <b>Ronin Wallet</b>
               {{donation_ronin}} 
@@ -243,7 +241,7 @@
 
           
           </v-card-text>
-
+-->
           
 
           <v-card-text class="py-2 text-center">

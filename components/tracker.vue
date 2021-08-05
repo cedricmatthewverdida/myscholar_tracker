@@ -5,10 +5,10 @@
         
         style="
     
-        backdrop-filter: blur(16px) saturate(180%);
-        -webkit-backdrop-filter: blur(16px) saturate(180%);
-        background-color: rgba(255, 255, 255, 0.75);
-        border-radius: 30px;
+        backdrop-filter: blur(25px) saturate(179%);
+        -webkit-backdrop-filter: blur(25px) saturate(179%);
+        background-color: rgba(237, 237, 237, 1);
+        border-radius: 35px;
         border: 1px solid rgba(209, 213, 219, 0.3);
 
         "
@@ -83,12 +83,12 @@
         <v-card-actions>
         <v-container>
             <v-btn
-            class="mr-4 mt-2"
+            class="mr-4 mt-2 white--text"
             @click="submit"
             rounded
             style="text-transform: none;"
             :loading="load"
-            color="primary"
+            color="#171717"
             depressed
             >
                 <template v-slot:loader>
@@ -122,7 +122,7 @@
             depressed
             @click="clear"
             class="mr-4 mt-2 white--text"
-            color="purple darken-2"
+            color="#171717"
             style="text-transform: none;"
             >
             <svg width="20px" height="20px" class="mr-2" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -184,7 +184,7 @@
             depressed
             class="mr-4 mt-2 white--text"
             @click="export_csv('slpscholartracker.csv', scholar)"
-            color="red"
+            color="#171717"
             style="text-transform: none;"
             :disabled="scholar.length == 0"
             >
@@ -236,7 +236,7 @@
 
 
             <v-btn
-            color="blue-grey darken-4"
+            color="#171717"
             depressed
             dark
             class="mt-2 mr-4"
@@ -300,7 +300,7 @@
         @click="reload_data()"
         rounded
         class="mt-2 white--text"
-        color="teal"
+        color="#171717"
         depressed
         >
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
